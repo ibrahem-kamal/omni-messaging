@@ -16,7 +16,7 @@
     backupStaticProperties="false"
 >
     <testsuites>
-        <testsuite name="Ibrahemkamal Test Suite">
+        <testsuite name="Omni Messaging">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
