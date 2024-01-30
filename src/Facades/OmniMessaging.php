@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \Ibrahemkamal\OmniMessaging\OmniMessaging
- * @method static \Ibrahemkamal\OmniMessaging\Contracts\MessagingDriverContract driver(string $driverName)
  *
+ * @method static \Ibrahemkamal\OmniMessaging\Contracts\MessagingDriverContract driver(string $driverName)
  */
 class OmniMessaging extends Facade
 {
