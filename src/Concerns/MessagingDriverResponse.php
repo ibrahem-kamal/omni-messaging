@@ -20,9 +20,9 @@ class MessagingDriverResponse implements Arrayable
         return $this->messages;
     }
 
-    public function setMessages(array $messages): MessagingDriverResponse
+    public function setMessages(array|string $messages): MessagingDriverResponse
     {
-        $this->messages = $messages;
+        $this->messages = Arr::wrap($messages);
 
         return $this;
     }
