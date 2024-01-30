@@ -23,15 +23,16 @@ class OmniMessaging extends Manager
     {
         $name = $channel->getChannelName();
         $channel = config("omni-messaging.channels.$name");
-        if (!$channel) {
+        if (! $channel) {
             throw new InvalidArgumentException("Omni Messaging channel [$name] is not defined.");
         }
-        if (!isset($channel['driver'])) {
+        if (! isset($channel['driver'])) {
             throw new InvalidArgumentException("Omni Messaging channel [$name] driver is not defined.");
         }
-        if (!isset($channel['options'])) {
+        if (! isset($channel['options'])) {
             throw new InvalidArgumentException("Omni Messaging channel [$name] options is not defined.");
         }
+
         return $this->driver($channel['driver']);
     }
 }

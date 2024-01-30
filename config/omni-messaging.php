@@ -10,5 +10,5 @@ return [
      *    ]
      * ]
      */
-    'channels' => []
+    'channels' => [],
 ];
