@@ -13,5 +13,4 @@ interface MessagingDriverContract
     public function getBalance(array $options = []): MessagingDriverResponse;
 
     public function getChannelName(): string;
-
 }

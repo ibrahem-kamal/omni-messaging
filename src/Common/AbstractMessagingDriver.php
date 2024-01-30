@@ -19,7 +19,7 @@ abstract class AbstractMessagingDriver implements MessagingDriverContract
         if (is_null($key)) {
             return config("omni-messaging.channels.{$this->getChannelName()}.options");
         }
+
         return config("omni-messaging.channels.{$this->getChannelName()}.options.{$key}");
     }
-
 }
