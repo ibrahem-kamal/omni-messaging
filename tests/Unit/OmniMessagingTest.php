@@ -14,7 +14,6 @@ test('it throws exception if channel doesn`t exist in configuration file', funct
     OmniMessaging::driver('test-driver')->send('Hello World', '11111111', 'sender-name');
 })->throws(InvalidArgumentException::class, 'Omni Messaging channel [test-channel] is not defined.');
 
-
 test('it throws exception if channel driver do not exist in config', function () {
     OmniMessaging::extend('test-driver', function () {
         return new AbstractMessagingDriverTestMock();
@@ -25,7 +24,6 @@ test('it throws exception if channel driver do not exist in config', function ()
         ],
     ]);
     OmniMessaging::driver('test-driver')->send('Hello World', '11111111', 'sender-name');
-
 
 })->throws(InvalidArgumentException::class, 'Omni Messaging channel [test-channel] driver is not defined.');
 

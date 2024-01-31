@@ -27,4 +27,3 @@ class AbstractMessagingDriverTestMock extends AbstractMessagingDriver
         return 'test-channel';
     }
 }
-
