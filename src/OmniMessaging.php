@@ -19,7 +19,23 @@ class OmniMessaging extends Manager
         throw new InvalidArgumentException('No Omni Messaging driver was specified.');
     }
 
-    protected function channel(MessagingDriverContract $channel)
+    public function driver($driver = null)
+    {
+        $driver = $driver ?: $this->getDefaultDriver();
+
+        // If the given driver has not been created before, we will create the instances
+        // here and cache it so we can return it next time very quickly. If there is
+        // already a driver created by this name, we'll just return that instance.
+        if (!isset($this->drivers[$driver])) {
+            $this->drivers[$driver] = $this->createDriver($driver);
+        }
+
+        $this->validateDriver($this->drivers[$driver]);
+
+        return $this->drivers[$driver];
+    }
+
+    private function validateDriver(MessagingDriverContract $channel): void
     {
         $name = $channel->getChannelName();
         $channel = config("omni-messaging.channels.$name");
@@ -32,7 +48,5 @@ class OmniMessaging extends Manager
         if (! isset($channel['options'])) {
             throw new InvalidArgumentException("Omni Messaging channel [$name] options is not defined.");
         }
-
-        return $this->driver($channel['driver']);
     }
 }
