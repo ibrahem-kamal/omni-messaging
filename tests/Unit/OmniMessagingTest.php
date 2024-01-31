@@ -1,7 +1,7 @@
 <?php
 
 use Ibrahemkamal\OmniMessaging\Facades\OmniMessaging;
-use Ibrahemkamal\OmniMessaging\Tests\Unit\Common\Mocks\AbstractMessagingDriverTestMock;
+use Ibrahemkamal\OmniMessaging\Tests\Unit\Common\Mock\AbstractMessagingDriverTestMock;
 
 test('it throws exception if no channel is set', function () {
     OmniMessaging::send('Hello World', '11111111', 'sender-name');

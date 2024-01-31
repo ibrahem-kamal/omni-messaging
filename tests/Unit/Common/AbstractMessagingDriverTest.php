@@ -1,7 +1,7 @@
 <?php
 
 use Ibrahemkamal\OmniMessaging\Concerns\MessagingDriverResponse;
-use Ibrahemkamal\OmniMessaging\Tests\Unit\Common\Mocks\AbstractMessagingDriverTestMock;
+use Ibrahemkamal\OmniMessaging\Tests\Unit\Common\Mock\AbstractMessagingDriverTestMock;
 
 test('it implements messaging driver contract', function () {
     $mock = mock('Ibrahemkamal\OmniMessaging\Common\AbstractMessagingDriver');
@@ -12,14 +12,14 @@ test('it is an abstract class', function () {
 });
 
 test('it can get config option array', function () {
-    $method = new ReflectionMethod('Ibrahemkamal\OmniMessaging\Tests\Unit\Common\Mocks\AbstractMessagingDriverTestMock', 'getConfigOption');
+    $method = new ReflectionMethod('Ibrahemkamal\OmniMessaging\Tests\Unit\Common\Mock\AbstractMessagingDriverTestMock', 'getConfigOption');
     $method->setAccessible(true);
     $service = new AbstractMessagingDriverTestMock();
     config()->set('omni-messaging.channels.test-channel.options', ['foo' => 'bar']);
     expect($method->invoke($service))->toBeArray()->toBe(['foo' => 'bar']);
 });
 test('it can get config option for a specific option key', function () {
-    $method = new ReflectionMethod('Ibrahemkamal\OmniMessaging\Tests\Unit\Common\Mocks\AbstractMessagingDriverTestMock', 'getConfigOption');
+    $method = new ReflectionMethod('Ibrahemkamal\OmniMessaging\Tests\Unit\Common\Mock\AbstractMessagingDriverTestMock', 'getConfigOption');
     $method->setAccessible(true);
     $service = new AbstractMessagingDriverTestMock();
     config()->set('omni-messaging.channels.test-channel.options', ['foo' => 'bar']);

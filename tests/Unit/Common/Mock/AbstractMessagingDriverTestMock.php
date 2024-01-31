@@ -1,6 +1,6 @@
 <?php
 
-namespace Ibrahemkamal\OmniMessaging\Tests\Unit\Common\Mocks;
+namespace Ibrahemkamal\OmniMessaging\Tests\Unit\Common\Mock;
 
 use Ibrahemkamal\OmniMessaging\Common\AbstractMessagingDriver;
 use Ibrahemkamal\OmniMessaging\Concerns\MessagingDriverResponse;
