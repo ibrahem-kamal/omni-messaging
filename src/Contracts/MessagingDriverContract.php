@@ -10,7 +10,7 @@ interface MessagingDriverContract
 
     public function sendBulk(string $message, array $mobileNumbers, string $sender, array $options = []): MessagingDriverResponse;
 
-    public function getBalance(array $options = []): MessagingDriverResponse;
+    public function getBalance(string $sender = '', array $options = []): MessagingDriverResponse;
 
     public function getChannelName(): string;
 

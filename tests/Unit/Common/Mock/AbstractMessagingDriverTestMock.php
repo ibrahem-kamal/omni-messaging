@@ -18,7 +18,7 @@ class AbstractMessagingDriverTestMock extends AbstractMessagingDriver
         return $this->messagingDriverResponse;
     }
 
-    public function getBalance(array $options = []): MessagingDriverResponse
+    public function getBalance(string $sender = '', array $options = []): MessagingDriverResponse
     {
         return $this->messagingDriverResponse;
     }
