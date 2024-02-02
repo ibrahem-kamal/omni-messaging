@@ -19,6 +19,7 @@ class AbstractWebhookParseTestMock extends AbstractWebhookParse
                 ->setError($number['error_code_string']);
             $this->addParsedNumber($parsedNumber);
         }
+
         return $this;
     }
 }
