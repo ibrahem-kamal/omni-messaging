@@ -16,6 +16,7 @@ class OmniMessagingServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('omni-messaging')
+            ->hasRoute('api')
             ->hasConfigFile();
     }
 

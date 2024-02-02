@@ -11,4 +11,7 @@ return [
      * ]
      */
     'channels' => [],
+    'webhook' => [
+        'queue' => 'default',
+    ]
 ];

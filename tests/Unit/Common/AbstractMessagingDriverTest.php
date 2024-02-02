@@ -1,6 +1,7 @@
 <?php
 
 use Ibrahemkamal\OmniMessaging\Concerns\MessagingDriverResponse;
+use Ibrahemkamal\OmniMessaging\Contracts\WebhookParserContract;
 use Ibrahemkamal\OmniMessaging\Tests\Unit\Common\Mock\AbstractMessagingDriverTestMock;
 
 test('it implements messaging driver contract', function () {
@@ -43,4 +44,10 @@ test('it returns MessagingDriverResponse from getBalance method', function () {
 test('it returns channel name from getChannelName method', function () {
     $service = new AbstractMessagingDriverTestMock();
     expect($service->getChannelName())->toBe('test-channel');
+});
+
+test('it returns WebhookParserContract from getWebhookParser method', function () {
+    $service = new AbstractMessagingDriverTestMock();
+    $response = $service->getWebhookParser();
+    expect($response)->toBeInstanceOf(WebhookParserContract::class);
 });
