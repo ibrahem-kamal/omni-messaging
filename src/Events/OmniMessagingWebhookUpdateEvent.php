@@ -10,7 +10,6 @@ class OmniMessagingWebhookUpdateEvent implements ShouldQueue
 {
     use Dispatchable, Queueable;
 
-
     public array $parsedWebhookData;
 
     public function __construct(array $parsedWebhookData)

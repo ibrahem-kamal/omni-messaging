@@ -49,7 +49,6 @@ test('it can convert to array', function () {
         'from' => 'sender-name',
         'reference' => '123456789',
         'isSuccess' => true,
-        'error' => 'error'
+        'error' => 'error',
     ]);
 });
-

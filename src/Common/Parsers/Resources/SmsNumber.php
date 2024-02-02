@@ -7,9 +7,13 @@ use Ibrahemkamal\OmniMessaging\Contracts\SmsNumberContract;
 class SmsNumber implements SmsNumberContract
 {
     private string $number = '';
+
     private string $from = '';
+
     private string $reference = '';
+
     private bool $isSuccess = false;
+
     private string $error = '';
 
     public function getNumber(): string
@@ -20,6 +24,7 @@ class SmsNumber implements SmsNumberContract
     public function setNumber(string $number): SmsNumberContract
     {
         $this->number = $number;
+
         return $this;
     }
 
@@ -31,6 +36,7 @@ class SmsNumber implements SmsNumberContract
     public function setFrom(string $from): SmsNumberContract
     {
         $this->from = $from;
+
         return $this;
     }
 
@@ -42,6 +48,7 @@ class SmsNumber implements SmsNumberContract
     public function setReference(string $reference): SmsNumberContract
     {
         $this->reference = $reference;
+
         return $this;
     }
 
@@ -53,6 +60,7 @@ class SmsNumber implements SmsNumberContract
     public function setIsSuccess(bool $isSuccess): SmsNumberContract
     {
         $this->isSuccess = $isSuccess;
+
         return $this;
     }
 
@@ -64,6 +72,7 @@ class SmsNumber implements SmsNumberContract
     public function setError(string $error): SmsNumberContract
     {
         $this->error = $error;
+
         return $this;
     }
 
@@ -74,7 +83,7 @@ class SmsNumber implements SmsNumberContract
             'from' => $this->getFrom(),
             'reference' => $this->getReference(),
             'isSuccess' => $this->isSuccess(),
-            'error' => $this->getError()
+            'error' => $this->getError(),
         ];
     }
 }

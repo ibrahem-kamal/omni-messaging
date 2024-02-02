@@ -10,5 +10,4 @@ interface WebhookParserContract
      * @return  Ibrahemkamal\OmniMessaging\Contracts\SmsNumberContract[]
      */
     public function getParsedNumbers(): array;
-
 }

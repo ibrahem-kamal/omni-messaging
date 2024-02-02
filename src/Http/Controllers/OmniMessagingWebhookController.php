@@ -14,6 +14,7 @@ class OmniMessagingWebhookController
             ->getWebhookParser();
         $parser->parsePayload($request->all());
         OmniMessagingWebhookUpdateEvent::dispatch($parser->getParsedNumbers());
+
         return response()->json(['status' => 'ok']);
     }
 }
