@@ -1,19 +1,24 @@
-# This is my package omni-messaging
+# Omni Messaging
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/ibrahem-kamal/omni-messaging.svg?style=flat-square)](https://packagist.org/packages/ibrahem-kamal/omni-messaging)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/ibrahem-kamal/omni-messaging/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/ibrahem-kamal/omni-messaging/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/ibrahem-kamal/omni-messaging/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/ibrahem-kamal/omni-messaging/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+___
+**An easy to use, consistent sms library for Laravel**
+
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/ibrahem-kamal/omni-messaging/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/ibrahem-kamal/omni-messaging/actions?query=workflow%3Arun-tests)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/ibrahem-kamal/omni-messaging/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/ibrahem-kamal/omni-messaging/actions?query=workflow%3A"Fix+PHP+code+style+issues")
 [![Total Downloads](https://img.shields.io/packagist/dt/ibrahem-kamal/omni-messaging.svg?style=flat-square)](https://packagist.org/packages/ibrahem-kamal/omni-messaging)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Omni messaging is heavily inspired by the PHP OmniPay Library and is designed to be a simple and consistent interface
+for sending SMS messages in Laravel.
 
-## Support us
+there are many SMS gateways out there, and they all have their own API's, and they all have their own way of doing
+things. Omni Messaging is designed to provide a consistent interface for sending SMS messages, regardless of the gateway
+you are using.
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/omni-messaging.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/omni-messaging)
+Currently supported gateways are (Many more will be added in the future either by me or the community):
 
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+| Sms Gateway                            | 1.x | Composer Package | Maintainer                                        |
+|----------------------------------------|-----|------------------|---------------------------------------------------|
+| [Jawaly Sms](https://www.4jawaly.com/) | ✓   |                  | [Ibrahem Kamal](https://github.com/ibrahem-kamal) |
 
 ## Installation
 
@@ -27,7 +32,6 @@ You can publish and run the migrations with:
 
 ```bash
 php artisan vendor:publish --tag="omni-messaging-migrations"
-php artisan migrate
 ```
 
 You can publish the config file with:
@@ -40,20 +44,74 @@ This is the contents of the published config file:
 
 ```php
 return [
+    /**
+     * Channels should be added in the following format:
+     * 'channels' => [
+     *     'channel_name' => [
+     *        'driver' => 'driver_name',
+     *       'options' => []
+     *    ]
+     * ]
+     */
+    'channels' => [],
+    'webhook' => [
+        'queue' => 'default',
+    ],
 ];
 ```
 
-Optionally, you can publish the views using
 
-```bash
-php artisan vendor:publish --tag="omni-messaging-views"
-```
 
 ## Usage
 
+- Sending Sms
 ```php
-$omniMessaging = new Ibrahemkamal\OmniMessaging();
-echo $omniMessaging->echoPhrase('Hello, Ibrahemkamal!');
+$sms = OmniMessaging::driver('jawaly')->send($message,$mobileNumber,$sender,$options = []);
+    $sms->isSuccess(); //bool
+    $sms->getErrorsString(); // errors as string
+    $sms->getErrors(); // errors as array
+    $sms->getData(); // array of data returned from the gateway
+    $sms->toArray(); // array of all the above
+```
+
+- Retrieving Balance
+
+```php
+$balance = OmniMessaging::driver('jawaly')->getBalance();
+    $balance->isSuccess(); //bool
+    $balance->getErrorsString(); // errors as string
+    $balance->getErrors(); // errors as array
+    $balance->getData(); // array of data returned from the gateway
+    $balance->toArray(); // array of all the above
+```
+
+- Handling Sms Webhooks
+
+> by default this package will handle the incoming sms webhooks using the gateway logic and dispatch an
+> event `OmniMessagingWebhookUpdateEvent` with the `parsedWebhookData` as payload. so for example to listen to incoming
+> sms you can do the following:
+
+```php
+// in your event service provider
+     OmniMessagingWebhookUpdateEvent::class => [
+            YourListener::class,
+        ]
+```
+
+> and within your listener you can access the parsed data as follows:
+
+```php
+    public function handle(OmniMessagingWebhookUpdateEvent $event)
+    {
+          foreach ($event->parsedWebhookData as $parsedNumber) {
+            $parsedNumber->getNumber(); // phone number string
+            $parsedNumber->getFrom(); // sender string
+            $parsedNumber->getReference(); // reference string such as message id
+            $parsedNumber->isSuccess(); // bool
+            $parsedNumber->getError(); // string
+            $parsedNumber->toArray(); // array of all the above
+        }
+    }
 ```
 
 ## Testing
