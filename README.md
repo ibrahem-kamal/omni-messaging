@@ -3,8 +3,9 @@
 ___
 **An easy to use, consistent sms library for Laravel**
 
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/ibrahem-kamal/omni-messaging/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/ibrahem-kamal/omni-messaging/actions?query=workflow%3Arun-tests)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/ibrahem-kamal/omni-messaging/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/ibrahem-kamal/omni-messaging/actions?query=workflow%3A"Fix+PHP+code+style+issues")
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/ibrahem-kamal/omni-messaging.svg?style=flat-square)](https://packagist.org/packages/ibrahem-kamal/omni-messaging)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/ibrahem-kamal/omni-messaging/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/ibrahem-kamal/omni-messaging/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/ibrahem-kamal/omni-messaging/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/ibrahem-kamal/omni-messaging/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/ibrahem-kamal/omni-messaging.svg?style=flat-square)](https://packagist.org/packages/ibrahem-kamal/omni-messaging)
 
 Omni messaging is heavily inspired by the PHP OmniPay Library and is designed to be a simple and consistent interface
