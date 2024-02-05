@@ -1,6 +1,6 @@
 {
     "name": "ibrahem-kamal/omni-messaging",
-    "description": "This is my package omni-messaging",
+    "description": "An easy to use, consistent sms library for Laravel",
     "keywords": [
         "ibrahemkamal",
         "laravel",
@@ -81,6 +81,6 @@
             }
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
