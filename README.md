@@ -16,9 +16,9 @@ you are using.
 
 Currently supported gateways are (Many more will be added in the future either by me or the community):
 
-| Sms Gateway                            | 1.x | Composer Package | Maintainer                                        |
-|----------------------------------------|-----|------------------|---------------------------------------------------|
-| [Jawaly Sms](https://www.4jawaly.com/) | ✓   |                  | [Ibrahem Kamal](https://github.com/ibrahem-kamal) |
+| Sms Gateway                            | 1.x | Composer Package                               | Maintainer                                        |
+|----------------------------------------|-----|------------------------------------------------|---------------------------------------------------|
+| [Jawaly Sms](https://www.4jawaly.com/) | ✓   | ibrahem-kamal/omni-messaging-jawaly-sms-driver | [Ibrahem Kamal](https://github.com/ibrahem-kamal) |
 
 ## Installation
 
