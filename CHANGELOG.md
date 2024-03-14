@@ -2,6 +2,19 @@
 
 All notable changes to `omni-messaging` will be documented in this file.
 
+## 2.0.1 - 2024-03-14
+
+### What's Changed
+
+* Bump ramsey/composer-install from 2 to 3 by @dependabot in https://github.com/ibrahem-kamal/omni-messaging/pull/5
+* add support to laravel 11 by @ibrahem-kamal in https://github.com/ibrahem-kamal/omni-messaging/pull/6
+
+### New Contributors
+
+* @dependabot made their first contribution in https://github.com/ibrahem-kamal/omni-messaging/pull/5
+
+**Full Changelog**: https://github.com/ibrahem-kamal/omni-messaging/compare/2.0...2.0.1
+
 ## 2.0 - 2024-03-14
 
 **Full Changelog**: https://github.com/ibrahem-kamal/omni-messaging/compare/1.0.1...2.0
