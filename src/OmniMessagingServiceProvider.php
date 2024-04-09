@@ -2,6 +2,7 @@
 
 namespace Ibrahemkamal\OmniMessaging;
 
+use Illuminate\Foundation\Application;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -22,6 +23,6 @@ class OmniMessagingServiceProvider extends PackageServiceProvider
 
     public function registeringPackage(): void
     {
-        $this->app->singleton(\Ibrahemkamal\OmniMessaging\Facades\OmniMessaging::class, OmniMessaging::class);
+        $this->app->singleton(OmniMessaging::class, fn(Application $app) => new OmniMessaging($app));
     }
 }
