@@ -23,6 +23,6 @@ class OmniMessagingServiceProvider extends PackageServiceProvider
 
     public function registeringPackage(): void
     {
-        $this->app->singleton(OmniMessaging::class, fn (Application $app) => new OmniMessaging($app));
+        $this->app->singleton(OmniMessaging::class, fn(Application $app) => new OmniMessaging($app));
     }
 }
