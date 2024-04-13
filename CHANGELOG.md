@@ -2,6 +2,10 @@
 
 All notable changes to `omni-messaging` will be documented in this file.
 
+## add support for laravel 10 and 11 - 2024-04-13
+
+- add support for laravel 10 and 11
+
 ## 2.1.0 - 2024-04-09
 
 **Full Changelog**: https://github.com/ibrahem-kamal/omni-messaging/compare/2.0.1...2.1.0
